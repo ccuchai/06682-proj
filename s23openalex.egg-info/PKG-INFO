@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: s23openalex
+Version: 0.0.1
+Summary: s23openalex package
+Home-page: UNKNOWN
+Maintainer: Tricia Chang
+Maintainer-email: tsuiyunc@andrew.cmu.edu
+License: MIT
+Platform: UNKNOWN
+
+Handy functions for a project.
+
