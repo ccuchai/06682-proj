@@ -1,4 +1,4 @@
-from s23oa import Works
+from s23openalex import Works
 
 
 ref_ris = """TY  - JOUR
