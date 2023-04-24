@@ -16,4 +16,4 @@ ER  -"""
 
 def test_ris():
     w = Works("https://doi.org/10.1021/acscatal.5b00538")
-    assert ref_ris == w.ris
+    assert ref_ris == w._ris()
