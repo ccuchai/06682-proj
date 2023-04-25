@@ -13,9 +13,8 @@ class Works:
     def __str__(self):
         return "str"
 
-    @property
-    def bibtex(self):
-        """ bibtex property """
+    def _bibtex(self):
+        """ bibtex """
         fields = []
         if self.data["type"] == "journal-article":
             authors = []
@@ -42,15 +41,22 @@ class Works:
 
         fields += [f'doi={self.data["doi"]}\n}}']
 
-        ris = ",\n".join(fields)
-        ris64 = base64.b64encode(ris.encode("utf-8")).decode("utf8")
-        uri = f'<pre>{ris}<pre><br><a href="data:text/plain;base64,{ris64}"' \
+        bibtex = ",\n".join(fields)
+        
+        return bibtex
+        
+    @property
+    def bibtex(self):
+        """ bibtex property """
+        bibtexx = self._bibtex()
+        bibtex64 = bibtexx.b64encode(bibtexx.encode("utf-8")).decode("utf8")
+        uri = f'<pre>{bibtexx}<pre><br><a href="data:text/plain;base64,{bibtex64}"' \
                 'download="ris">Download RIS</a>'
 
         return HTML(uri)
     
     def _ris(self):
-        """ ris property """
+        """ ris """
         fields = []
         if self.data['type'] == 'journal-article':
             fields += ['TY  - JOUR']

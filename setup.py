@@ -10,6 +10,7 @@ setup(
     maintainer_email="tsuiyunc@andrew.cmu.edu",
     license="MIT",
     packages=["s23openalex"],
+    entry_points={'console_scripts': ['oaa = s23openalex.main:main']},
     scripts=[],
     long_description="""\
 Handy functions for a project.""",
