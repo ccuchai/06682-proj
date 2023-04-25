@@ -13,7 +13,7 @@ class Works:
     def __str__(self):
         return "str"
 
-    def _bibtex(self):
+    def bibtex_str(self):
         """ bibtex """
         fields = []
         if self.data["type"] == "journal-article":
@@ -42,20 +42,20 @@ class Works:
         fields += [f'doi={self.data["doi"]}\n}}']
 
         bibtex = ",\n".join(fields)
-        
+
         return bibtex
-        
+
     @property
     def bibtex(self):
         """ bibtex property """
-        bibtexx = self._bibtex()
-        bibtex64 = bibtexx.b64encode(bibtexx.encode("utf-8")).decode("utf8")
+        bibtexx = self.bibtex_str()
+        bibtex64 = base64.b64encode(bibtexx.encode("utf-8")).decode("utf8")
         uri = f'<pre>{bibtexx}<pre><br><a href="data:text/plain;base64,{bibtex64}"' \
                 'download="ris">Download RIS</a>'
 
         return HTML(uri)
-    
-    def _ris(self):
+
+    def ris_str(self):
         """ ris """
         fields = []
         if self.data['type'] == 'journal-article':
@@ -82,13 +82,12 @@ class Works:
         ris = '\n'.join(fields)
 
         return ris
-        
+
     @property
     def ris(self):
-        riss = self._ris()
+        """ ris property"""
+        riss = self.ris_str()
         ris64 = base64.b64encode(riss.encode('utf-8')).decode('utf8')
-        uri = f'<pre>{ris}<pre><br><a href="data:text/plain;base64,{ris64}"' \
+        uri = f'<pre>{riss}<pre><br><a href="data:text/plain;base64,{ris64}"' \
                 'download="ris">Download RIS</a>'
         return HTML(uri)
-
-    
