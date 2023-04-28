@@ -5,8 +5,9 @@ Summary: s23openalex package
 Home-page: UNKNOWN
 Maintainer: Tricia Chang
 Maintainer-email: tsuiyunc@andrew.cmu.edu
-License: MIT
+License: GPL
 Platform: UNKNOWN
+License-File: LICENSE
 
 Handy functions for a project.
 
